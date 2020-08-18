@@ -1,0 +1,6 @@
+usr/local/bin/nadir-qt usr/bin
+share/pixmaps/nadir32.xpm usr/share/pixmaps
+share/pixmaps/nadir16.xpm usr/share/pixmaps
+share/pixmaps/nadir128.png usr/share/pixmaps
+debian/nadir-qt.desktop usr/share/applications
+debian/nadir-qt.protocol usr/share/kde4/services/

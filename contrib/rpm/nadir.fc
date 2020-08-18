@@ -1,0 +1,8 @@
+/usr/bin/nadir-cli		--	gen_context(system_u:object_r:nadir_exec_t,s0)
+/usr/sbin/nadird		--	gen_context(system_u:object_r:nadir_exec_t,s0)
+/usr/lib(64)?/nadir/nadird		--	gen_context(system_u:object_r:nadir_exec_t,s0)
+
+/etc/nadir(/.*)?		gen_context(system_u:object_r:nadir_conf_t,s0)
+/var/lib/nadir(/.*)?		gen_context(system_u:object_r:nadir_var_lib_t,s0)
+
+(/var)?/run/nadird(/.*)?   gen_context(system_u:object_r:nadir_var_run_t,s0)

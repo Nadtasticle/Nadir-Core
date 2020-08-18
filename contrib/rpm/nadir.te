@@ -1,0 +1,81 @@
+policy_module(nadir, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type nadir_t;
+type nadir_exec_t;
+init_daemon_domain(nadir_t, nadir_exec_t)
+
+permissive nadir_t;
+
+type nadir_initrc_exec_t;
+init_script_file(nadir_initrc_exec_t)
+
+type nadir_conf_t;
+files_type(nadir_conf_t)
+
+type nadir_var_lib_t;
+files_type(nadir_var_lib_t)
+
+type nadir_var_run_t;
+files_type(nadir_var_run_t)
+
+type nadir_port_t;
+corenet_port(nadir_port_t)
+
+########################################
+#
+# nadir local policy
+#
+allow nadir_t self:process { fork };
+
+allow nadir_t self:fifo_file rw_fifo_file_perms;
+allow nadir_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(nadir_t, nadir_conf_t, nadir_conf_t)
+manage_files_pattern(nadir_t, nadir_conf_t, nadir_conf_t)
+
+manage_dirs_pattern(nadir_t, nadir_var_lib_t, nadir_var_lib_t)
+manage_files_pattern(nadir_t, nadir_var_lib_t, nadir_var_lib_t)
+files_var_lib_filetrans(nadir_t, nadir_var_lib_t, { dir file })
+
+manage_dirs_pattern(nadir_t, nadir_var_run_t, nadir_var_run_t)
+manage_files_pattern(nadir_t, nadir_var_run_t, nadir_var_run_t)
+
+sysnet_dns_name_resolve(nadir_t)
+corenet_all_recvfrom_unlabeled(nadir_t)
+
+allow nadir_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(nadir_t)
+corenet_tcp_sendrecv_generic_node(nadir_t)
+corenet_tcp_sendrecv_all_ports(nadir_t)
+corenet_tcp_bind_generic_node(nadir_t)
+
+gen_require(`
+    type nadir_port_t;
+')
+allow nadir_t nadir_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type nadir_port_t;
+')
+allow nadir_t nadir_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(nadir_t)
+
+files_read_etc_files(nadir_t)
+
+miscfiles_read_localization(nadir_t)
+
+sysnet_dns_name_resolve(nadir_t)
+
+allow nadir_t nadir_exec_t:file execute_no_trans;
+allow nadir_t self:process setsched;
+corecmd_exec_ls(nadir_t)
+corenet_tcp_connect_http_port(nadir_t)
+dev_read_urand(nadir_t)
+fs_getattr_xattr_fs(nadir_t)
+kernel_read_system_state(nadir_t)

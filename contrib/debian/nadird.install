@@ -1,0 +1,3 @@
+usr/local/bin/nadird usr/bin
+usr/local/bin/nadir-cli usr/bin
+debian/examples/nadir.conf etc/nadir

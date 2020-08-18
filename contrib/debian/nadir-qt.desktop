@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=NADIR Core
+Comment=NADIR P2P Cryptocurrency
+Comment[fr]=NADIR, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=NADIR, eşten eşe kriptografik sanal para birimi
+Exec=nadir-qt %u
+Terminal=false
+Type=Application
+Icon=nadir128
+MimeType=x-scheme-handler/nadir;
+Categories=Office;Finance;
+StartupWMClass=NADIR-qt
