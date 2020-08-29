@@ -4,8 +4,8 @@
 
 
 
-#ifndef DEVIANT_INVALID_SERIALS_JSON_H
-#define DEVIANT_INVALID_SERIALS_JSON_H
+#ifndef NADIR_INVALID_SERIALS_JSON_H
+#define NADIR_INVALID_SERIALS_JSON_H
 
 #include <string>
 
@@ -1189,4 +1189,4 @@ std::string LoadInvalidSerials()
     return str;
 }
 
-#endif //DEVIANT_INVALID_SERIALS_JSON_H
+#endif //NADIR_INVALID_SERIALS_JSON_H

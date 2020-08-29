@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef DEVIANT_INVALID_OUTPOINTS_JSON_H
-#define DEVIANT_INVALID_OUTPOINTS_JSON_H
+#ifndef NADIR_INVALID_OUTPOINTS_JSON_H
+#define NADIR_INVALID_OUTPOINTS_JSON_H
 #include <string>
 
 std::string LoadInvalidOutPoints()
@@ -6793,4 +6793,4 @@ std::string LoadInvalidOutPoints()
     return str;
 }
 
-#endif //DEVIANT_INVALID_OUTPOINTS_JSON_H
+#endif //NADIR_INVALID_OUTPOINTS_JSON_H
